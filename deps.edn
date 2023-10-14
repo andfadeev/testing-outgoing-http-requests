@@ -1,0 +1,20 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+        clj-http/clj-http {:mvn/version "3.12.3"}
+        cheshire/cheshire {:mvn/version "5.12.0"}
+        org.slf4j/slf4j-simple {:mvn/version "2.0.7"}}
+ :aliases
+ {:run-m {:main-opts ["-m" "andfadeev.testing-outgoing-http-requests"]}
+  :run-x {:ns-default andfadeev.testing-outgoing-http-requests
+          :exec-fn greet
+          :exec-args {:name "Clojure"}}
+  :build {:deps {io.github.clojure/tools.build
+                 {:mvn/version "0.9.6"}}
+          :ns-default build}
+  :test {:extra-paths ["test"]
+         :extra-deps {clj-http-fake/clj-http-fake {:mvn/version "1.0.4"}
+                      org.clojure/test.check {:mvn/version "1.1.1"}
+                      org.wiremock/wiremock {:mvn/version "3.2.0"}
+                      clj-test-containers/clj-test-containers {:mvn/version "0.7.4"}
+                      io.github.cognitect-labs/test-runner
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}}}}
