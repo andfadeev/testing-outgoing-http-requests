@@ -52,3 +52,7 @@
         (transform-abilities)
         (transform-forms)
         (select-keys [:name :abilities :forms]))))
+
+(comment
+  (get-pokemon-short-info {:base-url "https://pokeapi.co"}
+                          101))
